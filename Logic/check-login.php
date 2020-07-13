@@ -18,7 +18,7 @@ session_start();
 		
 			<?php
 			// Connection info. file
-			include '/Data/conn.php';				
+			include '../Data/conn.php';				
 
 			// Check connection
 			if (!$conn) {
@@ -30,13 +30,13 @@ session_start();
 			$password = $_POST['password'];
 			
 			// Query sent to database
-			$result = mysqli_query($conn, "SELECT Email, Password, Name FROM users WHERE Name = '$name'");
+			$result = mysqli_query($conn, "SELECT email, password, name FROM users WHERE name = '$name'");
 			
 			// Variable $row hold the result of the query
 			$row = mysqli_fetch_assoc($result);
 			
 			// Variable $hash hold the password hash on database
-			$hash = $row['Password'];
+			$hash = $row['password'];
 			
 			/* 
 			password_Verify() function verify if the password entered by the user
@@ -50,12 +50,12 @@ session_start();
 				$_SESSION['start'] = time();
 				$_SESSION['expire'] = $_SESSION['start'] + (1 * 60) ;						
 				
-				echo "<div class='alert alert-success mt-4' role='alert'><strong>Bienvenido!</strong> $row[Name]
+				echo "<div class='alert alert-success mt-4' role='alert'><strong>Bienvenido!</strong>
 				<p><a href='logout.php'>Cerrar Sesion</a></p></div>";	
 			
 			} else {
 				echo "<div class='alert alert-danger mt-4' role='alert'>Nombre o Contraseña Incorrecto!
-				<p><a href='login.html'><strong>Volver</strong></a></p></div>";			
+				<p><a href='../views/login.html'><strong>Volver</strong></a></p></div>";			
 			}	
 			?>
 		</div>

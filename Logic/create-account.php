@@ -15,7 +15,7 @@
 
 	<?php
 
-	include '/Data/conn.php';
+	include '../Data/conn.php';
 
 	// Check connection
 	if (!$conn) {
@@ -23,7 +23,7 @@
 	}
 	
 	// Query to check if the email already exist
-	$checkEmail = "SELECT * FROM users WHERE Email = '$_POST[email]' ";
+	$checkEmail = "SELECT * FROM users WHERE email = '$_POST[email]' ";
 
 	// Variable $result hold the connection data and the query
 	$result = $conn-> query($checkEmail);
@@ -35,7 +35,7 @@
 	if ($count == 1) {
 	echo "<div class='alert alert-warning mt-4' role='alert'>
 					<p>El email ya esta registrado.</p>
-					<p><a href='login.html'>Iniciar Sesion</a></p>
+					<p><a href='../views/login.html'>Iniciar Sesion</a></p>
 				</div>";
 	} else {	
 	
@@ -51,11 +51,11 @@
 	$passHash = password_hash($pass, PASSWORD_DEFAULT);
 	
 	// Query to send Name, Email and Password hash to the database
-	$query = "INSERT INTO users (Name, Email, Password) VALUES ('$name', '$email', '$passHash')";
+	$query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$passHash')";
 
 	if (mysqli_query($conn, $query)) {
-		echo "<div class='alert alert-success mt-4' role='alert'><h3>Your account has been created.</h3>
-		<a class='btn btn-outline-primary' href='login.html' role='button'>Login</a></div>";		
+		echo "<div class='alert alert-success mt-4' role='alert'><h3>Cuenta creada correctamente</h3>
+		<a class='btn btn-outline-primary' href='../views/login.html' role='button'>Login</a></div>";		
 		} else {
 			echo "Error: " . $query . "<br>" . mysqli_error($conn);
 		}	
