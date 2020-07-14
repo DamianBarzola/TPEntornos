@@ -49,9 +49,15 @@ session_start();
 				$_SESSION['name'] = $row['name'];
 				$_SESSION['start'] = time();
 				$_SESSION['expire'] = $_SESSION['start'] + (1 * 60) ;						
-				
-				echo "<div class='alert alert-success mt-4' role='alert'><strong>Bienvenido!</strong>
-				<p><a href='logout.php'>Cerrar Sesion</a></p></div>";	
+					
+				header('location:../views/mainAlumno.php');	
+				/*if($row['type']==1){
+
+				}elseif($row['type']==2){
+
+				}elseif($row['type']==3){
+
+				}*/
 			
 			} else {
 				echo "<div class='alert alert-danger mt-4' role='alert'>Nombre o Contraseña Incorrecto!

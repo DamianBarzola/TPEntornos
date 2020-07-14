@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Inicio de Sesion</title>
+    <title>Principal</title>
 	
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -17,23 +17,13 @@
 			<div class="row">
 				<div class="col-lg-12">		
 					<div class="card">
-						<div class="loginBox">
-							<!--<img src="url.png" class="img-responsive" alt="Logo">-->
-							<h2>Iniciar Sesion</h2><hr />	
-
-							<form action="../Logic/check-login.php" method="post">                           	
-								<div class="form-group">									
-									<input type="text" class="form-control input-lg" name="name" placeholder="Nombre de Usuario" required>        
-								</div>							
-								<div class="form-group">        
-									<input type="password" class="form-control input-lg" name="password" placeholder="Contraseña" required>       
-								</div>								    
-									<button type="submit" class="btn btn-success btn-block">Ingresar</button>
+						<div class="page">
+							<h1>Bienvenido Wacho</h1>
+							<form action="../Logic/logout.php" method="post">
+								<button type="submit" class="btn btn-primary btn-block">Cerrar Sesion</button>
 							</form>
-							
-													
-							<hr><p>¿No tienes Cuenta? <a href="register.html" title="Crear cuenta">Registrate</a></p>								
-						</div><!-- /.loginBox -->	
+	
+						</div>
 					</div><!-- /.card -->
 				</div><!-- /.col -->
 			</div><!--/.row-->
