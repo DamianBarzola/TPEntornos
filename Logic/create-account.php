@@ -35,7 +35,7 @@
 	if ($count == 1) {
 	echo "<div class='alert alert-warning mt-4' role='alert'>
 					<p>El email ya esta registrado.</p>
-					<p><a href='../views/login.html'>Iniciar Sesion</a></p>
+					<p><a href='../views/login.php'>Iniciar Sesion</a></p>
 				</div>";
 	} else {	
 	
@@ -51,11 +51,11 @@
 	$passHash = password_hash($pass, PASSWORD_DEFAULT);
 	
 	// Query to send Name, Email and Password hash to the database
-	$query = "INSERT INTO users (name, email, password) VALUES ('$name', '$email', '$passHash')";
+	$query = "INSERT INTO users (name, email, password,type) VALUES ('$name', '$email', '$passHash',1)";
 
 	if (mysqli_query($conn, $query)) {
 		echo "<div class='alert alert-success mt-4' role='alert'><h3>Cuenta creada correctamente</h3>
-		<a class='btn btn-outline-primary' href='../views/login.html' role='button'>Login</a></div>";		
+		<a class='btn btn-outline-primary' href='../views/login.php' role='button'>Login</a></div>";		
 		} else {
 			echo "Error: " . $query . "<br>" . mysqli_error($conn);
 		}	

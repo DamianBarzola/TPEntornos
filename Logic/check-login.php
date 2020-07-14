@@ -30,7 +30,7 @@ session_start();
 			$password = $_POST['password'];
 			
 			// Query sent to database
-			$result = mysqli_query($conn, "SELECT email, password, name FROM users WHERE name = '$name'");
+			$result = mysqli_query($conn, "SELECT email, password, name,type FROM users WHERE name = '$name'");
 			
 			// Variable $row hold the result of the query
 			$row = mysqli_fetch_assoc($result);
@@ -47,21 +47,21 @@ session_start();
 				
 				$_SESSION['loggedin'] = true;
 				$_SESSION['name'] = $row['name'];
+				$_SESSION['type'] = $row['type'];
 				$_SESSION['start'] = time();
 				$_SESSION['expire'] = $_SESSION['start'] + (1 * 60) ;						
 					
-				header('location:../views/mainAlumno.php');	
-				/*if($row['type']==1){
-
+				
+				if($row['type']==1){
+					header('location:../views/mainAlumno.php');	
 				}elseif($row['type']==2){
-
+					header('location:../views/mainDocente.php');	
 				}elseif($row['type']==3){
-
-				}*/
+					header('location:../views/mainResponsable.php');	
+				}
 			
-			} else {
-				echo "<div class='alert alert-danger mt-4' role='alert'>Nombre o Contraseña Incorrecto!
-				<p><a href='../views/login.html'><strong>Volver</strong></a></p></div>";			
+			} else { 
+				header('location:../views/login.php?e=1');
 			}	
 			?>
 		</div>

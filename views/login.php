@@ -9,7 +9,7 @@
 
     <!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
-	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/login.css">
   </head>
 
   <body>
@@ -30,8 +30,10 @@
 								</div>								    
 									<button type="submit" class="btn btn-success btn-block">Ingresar</button>
 							</form>
-							
-													
+							<?php if (isset($_GET['e'])==1){
+								echo '<p><strong><span style="color: #ff0000;">Usuario o Contrase&ntilde;a Incorrecta</span></strong></p>';
+							}
+							?>													
 							<hr><p>¿No tienes Cuenta? <a href="register.html" title="Crear cuenta">Registrate</a></p>								
 						</div><!-- /.loginBox -->	
 					</div><!-- /.card -->

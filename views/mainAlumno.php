@@ -1,3 +1,13 @@
+<?php
+session_start();
+if($_SESSION['type']==1){		
+}elseif($_SESSION['type']==2){
+	header('location:../views/mainDocente.php');	
+}elseif($_SESSION['type']==3){
+	header('location:../views/mainResponsable.php');	
+}else{
+	header('location:../views/login.php');}
+?>
 <!doctype html>
 <html lang="es">
   <head>
@@ -9,19 +19,25 @@
 
     <!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
-	<link rel="stylesheet" href="../css/custom.css">
+	<link rel="stylesheet" href="../css/main.css">
   </head>
 
   <body>
-		<div class="container-fluid">
+		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">		
 					<div class="card">
 						<div class="page">
-							<h1>Bienvenido Wacho</h1>
+							<h1>Bienvenido <?php echo $_SESSION['name']?></h1>
 							<form action="../Logic/logout.php" method="post">
 								<button type="submit" class="btn btn-primary btn-block">Cerrar Sesion</button>
-							</form>
+							</form><br>
+							<form action="../Logic/logout.php" method="post">
+								<button type="submit" class="btn btn-primary btn-block">Cerrar Sesion</button>
+							</form><br>
+							<form action="../Logic/logout.php" method="post">
+								<button type="submit" class="btn btn-primary btn-block">Cerrar Sesion</button>
+							</form><br>
 	
 						</div>
 					</div><!-- /.card -->
