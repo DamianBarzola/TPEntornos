@@ -1,3 +1,4 @@
+
 <?php
 session_start();
 if($_SESSION['type']==1){
@@ -24,21 +25,33 @@ if($_SESSION['type']==1){
 
   <body>
 		<div class="container">
-			<div class="row">
-				<div class="col-lg-12">		
-					<div class="card">
-						<div class="page">
-							<h1>Bienvenido Res.<?php echo $_SESSION['name']?></h1>
-							<form action="../Logic/logout.php" method="post">
-								<button type="submit" class="btn btn-primary btn-block">Cerrar Sesion</button>
-							</form>
-	
+			<div class="card">
+				<div class="row">
+					<div class="col-lg-6"><br>
+						<h3>Bienvenido Res. <?php echo $_SESSION['name']?></h3>
+					</div>
+					<div class="col-lg-6">	
+						<form class="cerrar" action="../Logic/logout.php" method="post" ><br>
+							<button type="submit" class="btn btn-danger btn-block ce">Cerrar Sesion</button>
+						</form>			
+					</div>					
+				</div><hr>
+				<div class="row">
+					<div class="col-lg-12">	
+							<h2>MENÚ</h2>		<br>				
+							<div class="page">								
+								<form action="../Logic/logout.php" method="post">
+									<button type="submit" class="btn btn-primary btn-block">Definir Tutores a PPS</button>
+								</form><br>
+								<form action="../Logic/logout.php" method="post">
+									<button type="submit" class="btn btn-primary btn-block">Registrar Aprobacion PPS</button>
+								</form><br>
+							</div>
 						</div>
-					</div><!-- /.card -->
-				</div><!-- /.col -->
-			</div><!--/.row-->
-		</div><!-- /.container -->
-
+					</div>
+				</div>
+			</div>
+		</div>
 		<!-- Optional JavaScript -->
 		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
 		<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

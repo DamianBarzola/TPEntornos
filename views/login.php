@@ -13,17 +13,16 @@
   </head>
 
   <body>
-		<div class="container-fluid">
+		<div class="container-fluid">			
 			<div class="row">
-				<div class="col-lg-12">		
+				<div class="col-md-12">		
 					<div class="card">
 						<div class="loginBox">
-							<!--<img src="url.png" class="img-responsive" alt="Logo">-->
 							<h2>Iniciar Sesion</h2><hr />	
 
 							<form action="../Logic/check-login.php" method="post">                           	
 								<div class="form-group">									
-									<input type="text" class="form-control input-lg" name="name" placeholder="Nombre de Usuario" required>        
+									<input type="text" class="form-control input-lg" name="name" placeholder="Nombre" required>        
 								</div>							
 								<div class="form-group">        
 									<input type="password" class="form-control input-lg" name="password" placeholder="Contraseña" required>       

@@ -30,7 +30,7 @@ session_start();
 			$password = $_POST['password'];
 			
 			// Query sent to database
-			$result = mysqli_query($conn, "SELECT email, password, name,type FROM users WHERE name = '$name'");
+			$result = mysqli_query($conn, "SELECT id,email, password, nombre,tipo,apellido FROM users WHERE nombre = '$name'");
 			
 			// Variable $row hold the result of the query
 			$row = mysqli_fetch_assoc($result);
@@ -46,17 +46,18 @@ session_start();
 			if (password_verify($_POST['password'], $hash)) {	
 				
 				$_SESSION['loggedin'] = true;
-				$_SESSION['name'] = $row['name'];
-				$_SESSION['type'] = $row['type'];
+				$_SESSION['name'] = $row['nombre'];				
+				$_SESSION['id'] = $row['id'];
+				$_SESSION['type'] = $row['tipo'];
 				$_SESSION['start'] = time();
 				$_SESSION['expire'] = $_SESSION['start'] + (1 * 60) ;						
 					
 				
-				if($row['type']==1){
+				if($row['tipo']==1){
 					header('location:../views/mainAlumno.php');	
-				}elseif($row['type']==2){
+				}elseif($row['tipo']==2){
 					header('location:../views/mainDocente.php');	
-				}elseif($row['type']==3){
+				}elseif($row['tipo']==3){
 					header('location:../views/mainResponsable.php');	
 				}
 			

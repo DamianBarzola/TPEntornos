@@ -34,7 +34,7 @@
 	// If count == 1 that means the email is already on the database
 	if ($count == 1) {
 	echo "<div class='alert alert-warning mt-4' role='alert'>
-					<p>El email ya esta registrado.</p>
+					<p>El Usario ya esta registrado.</p>
 					<p><a href='../views/login.php'>Iniciar Sesion</a></p>
 				</div>";
 	} else {	
@@ -46,12 +46,12 @@
 	$name = $_POST['name'];
 	$email = $_POST['email'];
 	$pass = $_POST['password'];
-	
+	$surn = $_POST['surname'];
 	// The password_hash() function convert the password in a hash before send it to the database
 	$passHash = password_hash($pass, PASSWORD_DEFAULT);
 	
 	// Query to send Name, Email and Password hash to the database
-	$query = "INSERT INTO users (name, email, password,type) VALUES ('$name', '$email', '$passHash',1)";
+	$query = "INSERT INTO users (nombre, email, password,tipo,apellido) VALUES ('$name', '$email', '$passHash',1,$surn)";
 
 	if (mysqli_query($conn, $query)) {
 		echo "<div class='alert alert-success mt-4' role='alert'><h3>Cuenta creada correctamente</h3>
