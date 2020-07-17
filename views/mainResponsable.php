@@ -18,7 +18,7 @@ if($_SESSION['type']==1){
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <!-- Bootstrap CSS -->
+    <!-- Bootstrap CSS --> 
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
 	<link rel="stylesheet" href="../css/main.css">
   </head>
@@ -27,29 +27,28 @@ if($_SESSION['type']==1){
 		<div class="container">
 			<div class="card">
 				<div class="row">
-					<div class="col-lg-6"><br>
-						<h3>Bienvenido Res. <?php echo $_SESSION['name']?></h3>
-					</div>
-					<div class="col-lg-6">	
-						<form class="cerrar" action="../Logic/logout.php" method="post" ><br>
-							<button type="submit" class="btn btn-danger btn-block ce">Cerrar Sesion</button>
-						</form>			
-					</div>					
+				<?php 
+					include 'head.php';
+				?>					
 				</div><hr>
 				<div class="row">
 					<div class="col-lg-12">	
 							<h2>MENÚ</h2>		<br>				
 							<div class="page">								
-								<form action="../Logic/logout.php" method="post">
-									<button type="submit" class="btn btn-primary btn-block">Definir Tutores a PPS</button>
+								<form action="viewPPS.php" method="post">
+									<button type="submit" class="btn btn-primary btn-block">Definir Tutores de PPS</button>
 								</form><br>
-								<form action="../Logic/logout.php" method="post">
+								<form action="viewPPSapproved.php" method="post">
 									<button type="submit" class="btn btn-primary btn-block">Registrar Aprobacion PPS</button>
 								</form><br>
 							</div>
 						</div>
 					</div>
+					<?php 
+							include 'footer.html';
+						?>
 				</div>
+				
 			</div>
 		</div>
 		<!-- Optional JavaScript -->

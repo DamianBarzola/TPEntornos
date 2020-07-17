@@ -26,14 +26,9 @@ if($_SESSION['type']==1){
 		<div class="container">
 			<div class="card">
 				<div class="row">
-					<div class="col-lg-6"><br>
-						<h3><?php echo $_SESSION['name']?></h3>
-					</div>
-					<div class="col-lg-6">	
-						<form class="cerrar" action="../Logic/logout.php" method="post" ><br>
-							<button type="submit" class="btn btn-danger btn-block ce">Cerrar Sesion</button>
-						</form>			
-					</div>					
+				<?php 
+					include 'head.php';
+				?>	
 				</div><hr>
 				<div class="row">
 					<div class="col-lg-12">	
@@ -42,20 +37,24 @@ if($_SESSION['type']==1){
 							<form action="requestPPS.php" method="post">
 								<button type="submit" class="btn btn-primary btn-block">Solicitud de Inicio de PPS</button>
 							</form><br>
-							<form action="../Logic/logout.php" method="post">
-								<button type="submit" class="btn btn-primary btn-block">Seguimientos de PPS</button>
+							<form action="formSeguimiento.php" method="post">
+								<button type="submit" class="btn btn-primary btn-block">Subir Seguimiento Seguimientos de PPS</button>
 							</form><br>
-							<form action="../Logic/logout.php" method="post">
-								<button type="submit" class="btn btn-primary btn-block">Infome Final PPS </button>
+							<form action="formFinalReport.php" method="post">
+								<button type="submit" class="btn btn-primary btn-block">Subir Infome Final PPS </button>
 							</form><br>
-							<form action="../Logic/logout.php" method="post">
+							<form action="viewMyReports.php" method="post">
 								<button type="submit" class="btn btn-primary btn-block">Estado de PPS </button>
 							</form><br>
 																
 							</div>
 						</div>
 					</div>
+					<?php 
+							include 'footer.html';
+						?>
 				</div>
+				
 			</div>
 		</div>
 		<!-- Optional JavaScript -->

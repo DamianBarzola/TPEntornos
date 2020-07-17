@@ -51,7 +51,7 @@
 	$passHash = password_hash($pass, PASSWORD_DEFAULT);
 	
 	// Query to send Name, Email and Password hash to the database
-	$query = "INSERT INTO users (nombre, email, password,tipo,apellido) VALUES ('$name', '$email', '$passHash',1,$surn)";
+	$query = "INSERT INTO users (nombre, email, password,tipo,apellido) VALUES ('$name', '$email', '$passHash',1,'$surn')";
 
 	if (mysqli_query($conn, $query)) {
 		echo "<div class='alert alert-success mt-4' role='alert'><h3>Cuenta creada correctamente</h3>
