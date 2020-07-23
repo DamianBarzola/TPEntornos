@@ -10,7 +10,7 @@
 
     <!-- Bootstrap CSS -->
 		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
-		<link rel="stylesheet" href="../css/login.css">
+		<link rel="stylesheet" href="../../public/css/login.css">
   </head>
   <body>
 	  <div class="container-fluid">
@@ -18,7 +18,7 @@
 				<div class="col-lg-12">	
 					<div class="card">
 							<h2>Crea tu cuenta</h2><hr />	
-							<form method="post" action="../Logic/create-account.php" >
+							<form method="post" action="app/controllers/registerController.php" >
 								<div class="form-group">	
 									<input type="text" class="form-control" name="name" placeholder="Nombre" required>			
 								 </div>
@@ -33,8 +33,8 @@
 								</div>
 								<button type="submit" class="btn btn-success btn-block">Resgistrarte</button>
 							</form>
-							<hr><p>¿Tienes una cuenta? <a href="login.php" title="Ingresar a una cuenta">Ingresar</a></p>
-					</div>
+							<hr><p>¿Tienes una cuenta? <a href="../../index.php" title="Ingresar a una cuenta">Ingresar</a></p>
+						</div>
 				</div>
 			</div>
 		</div>

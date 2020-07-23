@@ -21,7 +21,7 @@ if($_SESSION['type']==1){
     <!-- Bootstrap CSS -->
      
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../../public/css/main.css">
     
   </head>
 
@@ -38,7 +38,7 @@ if($_SESSION['type']==1){
 					<div class="col-md-12">	
 							<h2>Definir Tutores de PPS</h2>		<br>				
                             <?php
-                                include("../Data/conn.php");
+                                include("../../config/conn.php");
                                 $Cant_por_Pag = 5;
                                 $pagina = isset ( $_GET['pagina']) ? $_GET['pagina'] : null ;
                                 if (!$pagina) {

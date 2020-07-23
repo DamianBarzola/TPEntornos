@@ -1,8 +1,8 @@
 <?php
 session_start();
 if($_SESSION['type']==1){
+	header('location:../views/mainAlumno.php');	
 }elseif($_SESSION['type']==2){	
-	header('location:../views/mainDocente.php');
 }elseif($_SESSION['type']==3){
 	header('location:../views/mainResponsable.php');	
 }else{
@@ -11,7 +11,7 @@ if($_SESSION['type']==1){
 <!doctype html>
 <html lang="es">
   <head>
-    <title>Estados de mis Informes</title>
+    <title>Informes</title>
 	
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -20,7 +20,7 @@ if($_SESSION['type']==1){
     <!-- Bootstrap CSS -->
      
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
-    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../../public/css/main.css">
     
   </head>
 
@@ -29,7 +29,7 @@ if($_SESSION['type']==1){
 			<div class="cardtable" style="max-width: 700px">
 				<div class="row">
 				<?php 
-					include 'head.php';
+                    include 'head.php';
 				?>					
                 </div><!-- row 1 --><hr>
                 
@@ -37,20 +37,19 @@ if($_SESSION['type']==1){
 					<div class="col-md-12">	
 							<h2>Seguimientos</h2>		<br>				
                             <?php
-                                include("../Data/conn.php");
-                                                                    
-                                $idP=$_SESSION['idPPS'];
-                                $vSql = "SELECT * FROM seguimientos where id_PPS='$idP'";
+                                include("../../config/conn.php");                                                                              
+                                $idP=$_SESSION['id']; 
+                                $vSql = "SELECT * FROM seguimientos se inner join solicitudes s on se.id_PPS=s.idPPS inner join users u on u.id=s.id_user where s.id_Profe='$idP'";
                                 $vResultado = mysqli_query($conn, $vSql);
                                 if(mysqli_num_rows($vResultado) == 0) {
-                                    echo("<p style='text-align: center;'>No hay Seguimientos enviados.<br />");
+                                    echo("<p style='text-align: center;'>No hay Seguimientos para corregir.<br />");
                                     }
                                     else{
                             ?>
                             <table class="table ">
                                 <tr class="bg-primary">
                                     <td><b>Nro</b></td>
-                                    <td><b>Condción</b></td>
+                                    <td><b>Alumno</b></td>
                                     <td><b>Ver Informe</b></td>
                                 </tr>
                             <?php
@@ -59,15 +58,10 @@ if($_SESSION['type']==1){
                             ?>
                                 <tr>
                                     <td><?php echo ($fila['idSeguimientos']); ?></td>
-                                    <td><?php if($fila['aprobadoSeg']==1){
-                                                    echo('<span style="color: #00ff00;"><strong>Aprobado</strong></span>');
-                                                }elseif($fila['aprobadoSeg']==2){
-                                                    echo('<strong><span style="color: #ff0000;">No Aprobado</span></strong>');
-                                                }else{echo('<strong>No corregido</strong>');}                                    
-                                    ?></td>
+                                    <td><?php echo($fila['apellido'].', '.$fila['nombre']) ?></td>
                                     <td>
                                         <button class="btn btn-warning" >
-                                            <strong>Ver</strong>
+                                        <strong>Ver</strong>
                                          </button>
                                     </td>
                                 </tr>                               
@@ -83,14 +77,13 @@ if($_SESSION['type']==1){
 
                 <div class="row">
 					<div class="col-md-12">	
-                        <h2>Informe Final</h2>		<br>				
-                            <?php                                                           
-                                $idP=$_SESSION['idPPS'];              
-                                $vSql = "SELECT * FROM finalreport where idPPS_FP='$idP'";
+                        <h2>Informes Finales</h2>		<br>				
+                            <?php                                                                                     
+                                $idP=$_SESSION['id'];        
+                                $vSql = "SELECT * FROM finalReport f inner join solicitudes s on f.idPPS_FP=s.idPPS inner join users u on u.id=s.id_user where s.id_Profe='$idP'";
                                 $vResultado = mysqli_query($conn, $vSql);
-                                $total_registros=mysqli_num_rows($vResultado);
                                 if(mysqli_num_rows($vResultado) == 0) {
-                                    echo("<p style='text-align: center;'>No hay Informes Finales Enviados.<br />");
+                                    echo("<p style='text-align: center;'>No hay Informes Finales para corregir.<br />");
                                     }
                                     else{                                                                           
                             ?> 
@@ -98,8 +91,8 @@ if($_SESSION['type']==1){
                             <table class="table">
                                 <tr class="bg-primary">
                                     <td><b>Nro</b></td>
-                                    <td><b>Condción</b></td>
-                                    <td><b>Ver Informe</b></td>
+                                    <td><b>Alumno</b></td>
+                                    <td><b>Ver Documento</b></td>
                                 </tr>
                             <?php
                                 while ($fila = mysqli_fetch_array($vResultado))
@@ -107,15 +100,10 @@ if($_SESSION['type']==1){
                             ?>
                                 <tr>
                                 <td><?php echo ($fila['idFR']); ?></td>
-                                    <td><?php if($fila['aprobadaFR']==1){
-                                                    echo('<span style="color: #00ff00;"><strong>Aprobado</strong></span>');
-                                                }elseif($fila['aprobadaFR']==2){
-                                                    echo('<strong><span style="color: #ff0000;">No Aprobado</span></strong>');
-                                                }else{echo('<strong>No corregido</strong>');}                                    
-                                    ?></td>
+                                    <td><?php echo ($fila['apellido'].', '.$fila['nombre']); ?> </td>
                                     <td>
-                                        <button class="btn btn-warning " >
-                                           <strong>Ver</strong>
+                                        <button class="btn btn-warning" >
+                                        <strong>Ver</strong>
                                          </button>
                                     </td>
                                 </tr>                               
@@ -133,7 +121,7 @@ if($_SESSION['type']==1){
 
                 <div class="row">
                     <div class="col-lg-12">
-                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='mainAlumno.php';" value="Volver" />
+                        <input type="button" class="btn btn-secondary btn-block" onclick="location.href='mainDocente.php';" value="Volver" />
                     </div>
                 </div><!-- row 4 -->
                 <?php 

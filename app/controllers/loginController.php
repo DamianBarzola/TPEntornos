@@ -3,7 +3,7 @@ session_start();
 ?>
 <?php
 			// Connection info. file
-			include '../Data/conn.php';				
+			include '../../config/conn.php';				
 
 			// Check connection
 			if (!$conn) {
@@ -40,11 +40,11 @@ session_start();
 					
 				
 				if($row['tipo']==1){
-					header('location:../views/mainAlumno.php');	
+					header('location:../../resources/views/mainAlumno.php');	
 				}elseif($row['tipo']==2){
-					header('location:../views/mainDocente.php');	
+					header('location:../../resources/views/mainDocente.php');	
 				}elseif($row['tipo']==3){
-					header('location:../views/mainResponsable.php');	
+					header('location:../../resources/views/mainResponsable.php');	
 				}
 			
 			} else { 

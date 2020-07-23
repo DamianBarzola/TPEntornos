@@ -9,7 +9,7 @@
 
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
-	<link rel="stylesheet" href="../css/login.css">
+	<link rel="stylesheet" href="public/css/login.css">
   </head>
 
   <body>
@@ -20,7 +20,7 @@
 						<div class="loginBox">
 							<h2>Iniciar Sesion</h2><hr />	
 
-							<form action="../Logic/check-login.php" method="post">                           	
+							<form action="app/controllers/loginController.php" method="post">                           	
 								<div class="form-group">									
 									<input type="text" class="form-control input-lg" name="name" placeholder="Nombre" required>        
 								</div>							
@@ -33,10 +33,10 @@
 								echo '<p><strong><span style="color: #ff0000;">Usuario o Contrase&ntilde;a Incorrecta</span></strong></p>';
 							}
 							?>													
-							<hr><p>¿No tienes Cuenta? <a href="register.html" title="Crear cuenta">Registrate</a></p>								
+							<hr><p>¿No tienes Cuenta? <a href="resources/views/register.php" title="Crear cuenta">Registrate</a></p>								
 						</div><!-- /.loginBox -->	
 						<?php 
-							include 'footer.html';
+							include 'resources/views/partial/footer.html';
 						?>
 					</div><!-- /.card -->
 				</div><!-- /.col -->

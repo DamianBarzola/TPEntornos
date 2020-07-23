@@ -1,8 +1,8 @@
 <?php
 session_start();
 if($_SESSION['type']==1){
+	header('location:../views/mainAlumno.php');	
 }elseif($_SESSION['type']==2){	
-	header('location:../views/mainDocente.php');
 }elseif($_SESSION['type']==3){
 	header('location:../views/mainResponsable.php');	
 }else{
@@ -19,7 +19,7 @@ if($_SESSION['type']==1){
 
     <!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
-	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../../public/css/main.css">
   </head>
 
   <body>
@@ -27,34 +27,24 @@ if($_SESSION['type']==1){
 			<div class="card">
 				<div class="row">
 				<?php 
-					include 'head.php';
-				?>	
+					include 'partial/header.php';
+				?>					
 				</div><hr>
 				<div class="row">
 					<div class="col-lg-12">	
 							<h2>MENÚ</h2>		<br>				
 							<div class="page">								
-							<form action="requestPPS.php" method="post">
-								<button type="submit" class="btn btn-primary btn-block">Solicitud de Inicio de PPS</button>
-							</form><br>
-							<form action="formSeguimiento.php" method="post">
-								<button type="submit" class="btn btn-primary btn-block">Subir Seguimiento Seguimientos de PPS</button>
-							</form><br>
-							<form action="formFinalReport.php" method="post">
-								<button type="submit" class="btn btn-primary btn-block">Subir Infome Final PPS </button>
-							</form><br>
-							<form action="viewMyReports.php" method="post">
-								<button type="submit" class="btn btn-primary btn-block">Estado de PPS </button>
-							</form><br>
-																
+								<form action="viewReports.php" method="post">
+									<button type="submit" class="btn btn-primary btn-block">Ver PPS</button>
+								</form><br>
+									
 							</div>
 						</div>
 					</div>
 					<?php 
-							include 'footer.html';
+							include 'partial/footer.html';
 						?>
 				</div>
-				
 			</div>
 		</div>
 		<!-- Optional JavaScript -->

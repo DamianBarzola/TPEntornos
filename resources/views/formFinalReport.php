@@ -20,7 +20,7 @@ if($_SESSION['type']==1){
 	<!-- Bootstrap CSS -->
 	
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous"">
-	<link rel="stylesheet" href="../css/main.css">
+	<link rel="stylesheet" href="../../public/css/main.css">
   </head>
 
   <body>
@@ -28,7 +28,7 @@ if($_SESSION['type']==1){
 			<div class="card">
 				<div class="row">
 					<?php 
-						include 'head.php';
+						include 'partial/header.php';
 					?>						
 				</div><hr><!-- row 1 -->
 
@@ -68,7 +68,7 @@ if($_SESSION['type']==1){
 						}
 				?>
 				<?php 
-							include 'footer.html';
+							include 'partial/footer.html';
 						?>
 			</div><!-- card -->
 		</div><!-- container -->
