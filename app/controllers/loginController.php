@@ -2,6 +2,8 @@
 session_start();
 ?>
 <?php
+
+	public class loginController extends User{
 			// Connection info. file
 			include '../../config/conn.php';				
 
@@ -10,7 +12,7 @@ session_start();
 				die("Connection failed: " . mysqli_connect_error());
 			}
 			
-			// data sent from form login.html 
+			// recibo del login 
 			$name = $_POST['name']; 
 			$password = $_POST['password'];
 			
@@ -48,6 +50,6 @@ session_start();
 				}
 			
 			} else { 
-				header('location:../views/login.php?e=1');
-			}	
+				header('location:../../resources/views/login.php?e=1');
+			}}	
 			?>
